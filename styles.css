@@ -1,17 +1,17 @@
 :root {
     --ink: #050505;
-    --paper: #f6f2ea;
-    --paper-strong: #fffaf0;
+    --paper: #f8f6f0;
+    --paper-strong: #fffdf7;
     --muted: #6f6a62;
     --line: rgba(5, 5, 5, 0.13);
-    --gold: #f4ad31;
+    --gold: #ffb12e;
     --gold-deep: #db841b;
     --white: #ffffff;
     --radius-sm: 8px;
     --radius-md: 18px;
-    --radius-lg: 34px;
+    --radius-lg: 42px;
     --shadow: 0 24px 70px rgba(5, 5, 5, 0.18);
-    --container: min(100% - 32px, 1180px);
+    --container: min(100% - 28px, 1180px);
     --font: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -102,7 +102,7 @@ button {
     gap: 24px;
     width: var(--container);
     margin: 0 auto;
-    padding: 16px 0;
+    padding: 14px 0;
     border-bottom: 1px solid var(--line);
     background: color-mix(in srgb, var(--paper) 88%, transparent);
     backdrop-filter: blur(18px);
@@ -225,9 +225,9 @@ h2 {
 }
 
 h1 {
-    max-width: 720px;
+    max-width: 620px;
     margin-bottom: 24px;
-    font-size: clamp(4.3rem, 12vw, 10.5rem);
+    font-size: clamp(5.6rem, 13vw, 10.8rem);
     font-weight: 900;
 }
 
@@ -249,24 +249,27 @@ p {
 
 .hero {
     display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(330px, 0.95fr);
-    align-items: center;
-    gap: 42px;
+    grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1fr);
+    align-items: end;
+    gap: 30px;
     min-height: calc(100vh - 74px);
-    padding-top: 46px;
+    padding-top: 48px;
+    padding-bottom: 56px;
 }
 
 .hero-lede {
-    max-width: 500px;
+    max-width: 390px;
     margin-bottom: 30px;
-    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    margin-left: auto;
+    font-size: clamp(0.92rem, 1.1vw, 1.06rem);
+    text-align: right;
 }
 
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    margin-bottom: 46px;
+    margin-bottom: 42px;
 }
 
 .button {
@@ -303,8 +306,8 @@ p {
 
 .social-proof {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 220px));
-    gap: 28px;
+    grid-template-columns: repeat(2, minmax(0, 260px));
+    gap: 34px;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -312,7 +315,7 @@ p {
 
 .social-proof strong {
     display: block;
-    font-size: clamp(2rem, 4vw, 3.8rem);
+    font-size: clamp(2.6rem, 5vw, 4.1rem);
     font-style: italic;
     line-height: 0.95;
 }
@@ -321,19 +324,20 @@ p {
     display: block;
     margin-top: 10px;
     color: var(--muted);
-    font-size: 0.88rem;
+    max-width: 220px;
+    font-size: 0.78rem;
 }
 
 .hero-visual {
     position: relative;
-    min-height: 560px;
+    min-height: 610px;
 }
 
 .feature-card {
     position: absolute;
-    inset: 24px 0 24px 34px;
+    inset: 0 0 22px 0;
     overflow: hidden;
-    border-radius: 36px 36px 84px 36px;
+    border-radius: 70px 70px 92px 70px;
     background: var(--gold);
     box-shadow: var(--shadow);
 }
@@ -345,35 +349,37 @@ p {
     width: 100%;
     min-height: 220px;
     overflow: hidden;
-    border: 1px dashed rgba(5, 5, 5, 0.3);
+    border: 0;
     background:
         linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.05)),
         repeating-linear-gradient(45deg, rgba(5, 5, 5, 0.06) 0 1px, transparent 1px 18px);
-    color: rgba(5, 5, 5, 0.74);
     text-align: center;
 }
 
-.image-slot span {
-    max-width: 18ch;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.82);
-    padding: 10px 14px;
-    font-size: 0.82rem;
-    font-weight: 900;
+.image-slot img,
+.floating-chip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .image-slot-warm {
     min-height: 100%;
     border: 0;
     background:
-        radial-gradient(circle at 70% 35%, rgba(255, 255, 255, 0.46), transparent 25%),
-        linear-gradient(145deg, #ffca5c 0%, #f0a22b 58%, #df841b 100%);
+        linear-gradient(145deg, rgba(255, 203, 90, 0.58), rgba(223, 132, 27, 0.2)),
+        var(--gold);
+}
+
+.image-slot-warm img {
+    mix-blend-mode: multiply;
+    filter: saturate(0.9) contrast(1.08);
 }
 
 .signature {
     position: absolute;
-    right: 34px;
-    top: 26px;
+    left: 76px;
+    top: 40px;
     color: var(--white);
     font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(2rem, 5vw, 4rem);
@@ -396,26 +402,27 @@ p {
 }
 
 .floating-chip {
-    left: 0;
-    width: 82px;
-    height: 82px;
+    left: 10px;
+    overflow: hidden;
+    width: 76px;
+    height: 76px;
     border: 8px solid var(--paper);
     font-size: 0.82rem;
 }
 
 .chip-top {
-    top: 44%;
+    top: 46%;
     background: var(--paper-strong);
     color: var(--ink);
 }
 
 .chip-bottom {
-    top: 58%;
+    top: 59%;
 }
 
 .round-link {
-    right: -10px;
-    top: 5px;
+    right: -8px;
+    top: 44%;
     width: 70px;
     height: 70px;
     border: 8px solid var(--paper);
@@ -426,8 +433,8 @@ p {
     overflow: hidden;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
-    background: var(--ink);
-    color: var(--white);
+    background: var(--paper);
+    color: var(--ink);
 }
 
 .marquee div {
@@ -438,7 +445,7 @@ p {
 
 .marquee span {
     padding: 18px 24px;
-    font-size: clamp(2rem, 7vw, 5.7rem);
+    font-size: clamp(3.1rem, 9vw, 7.8rem);
     font-weight: 900;
     line-height: 1;
     white-space: nowrap;
@@ -456,17 +463,18 @@ p {
     grid-template-columns: minmax(280px, 0.85fr) minmax(280px, 1fr);
     gap: 54px;
     align-items: center;
-    padding: 118px max(16px, calc((100vw - 1180px) / 2));
+    min-height: 880px;
+    padding: 126px max(16px, calc((100vw - 1180px) / 2)) 0;
     overflow: hidden;
 }
 
 .section-kicker {
     position: absolute;
-    top: -7px;
+    top: -20px;
     left: 0;
     width: 100%;
     color: var(--white);
-    font-size: clamp(3rem, 8vw, 7.5rem);
+    font-size: clamp(4rem, 9vw, 8.2rem);
     font-weight: 900;
     line-height: 1;
     white-space: nowrap;
@@ -479,17 +487,17 @@ p {
 
 .lens-ring {
     position: absolute;
-    inset: 15% 12%;
+    inset: 22% 18%;
     z-index: 2;
-    border: 28px solid var(--white);
+    border: 18px solid var(--white);
     border-radius: 50%;
     opacity: 0.92;
 }
 
 .burst {
     position: absolute;
-    inset: 3% 8%;
-    background: repeating-conic-gradient(from 10deg, rgba(255,255,255,0.98) 0deg 9deg, transparent 9deg 18deg);
+    inset: 12% 2%;
+    background: repeating-conic-gradient(from 10deg, rgba(255,255,255,0.98) 0deg 9deg, transparent 9deg 20deg);
     border-radius: 50%;
     filter: blur(0.2px);
 }
@@ -501,25 +509,27 @@ p {
 
 .about-frame {
     position: absolute;
-    left: max(22px, calc((100vw - 1180px) / 2 + 70px));
+    left: 50%;
     bottom: 0;
     z-index: 3;
-    width: min(38vw, 430px);
+    width: min(42vw, 470px);
+    transform: translateX(-50%);
 }
 
 .image-slot-mono {
-    min-height: 500px;
+    min-height: 620px;
     border: 0;
-    background:
-        linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.04)),
-        linear-gradient(135deg, #f4f4f4, #9b9b9b);
-    border-radius: 34px 34px 0 0;
+    background: #f4f4f4;
+    border-radius: 44px 44px 0 0;
+    filter: grayscale(1) contrast(1.08);
 }
 
 .about-content {
     position: relative;
     z-index: 4;
     grid-column: 2;
+    align-self: start;
+    padding-top: 120px;
 }
 
 .about-content p:not(.eyebrow) {
@@ -535,47 +545,54 @@ p {
 .portfolio-shell {
     position: relative;
     display: grid;
-    grid-template-columns: 1.2fr 0.85fr 0.9fr;
-    grid-template-rows: 280px 280px;
-    gap: 16px;
+    grid-template-columns: 1.05fr 1fr 0.85fr;
+    grid-template-rows: 340px 340px;
+    gap: 0;
 }
 
 .portfolio-shell .image-slot {
-    border-radius: var(--radius-lg);
+    border-radius: 54px;
+    box-shadow: 0 20px 58px rgba(5, 5, 5, 0.08);
 }
 
 .portfolio-wide {
-    grid-column: 1 / 3;
-    min-height: 280px;
+    grid-column: 1 / 4;
+    min-height: 340px;
 }
 
 .portfolio-tall {
     grid-column: 3;
     grid-row: 1 / 3;
+    align-self: end;
+    min-height: 390px;
 }
 
 .portfolio-square {
     grid-column: 1;
     grid-row: 2;
+    min-height: 330px;
 }
 
 .portfolio-title {
-    grid-column: 2;
-    grid-row: 2;
-    align-self: end;
+    grid-column: 1 / 4;
+    grid-row: 1 / 3;
+    align-self: center;
+    justify-self: center;
     z-index: 2;
+    text-align: center;
 }
 
 .portfolio-title h2 {
     margin: 0;
-    font-size: clamp(4.6rem, 12vw, 9.5rem);
+    font-size: clamp(5.4rem, 15vw, 12rem);
 }
 
-.portfolio-tall,
-.insta-grid .image-slot:nth-child(4) {
-    background:
-        radial-gradient(circle at 50% 15%, rgba(255,255,255,0.42), transparent 18%),
-        linear-gradient(145deg, #f8bd42, #d8881f);
+.portfolio-tall {
+    background: var(--gold);
+}
+
+.portfolio-tall img {
+    filter: sepia(0.4) saturate(1.4);
 }
 
 .section-heading {
@@ -593,16 +610,18 @@ p {
 
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 0;
 }
 
 .service-card {
-    min-height: 330px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    background: var(--paper-strong);
-    padding: 24px;
+    display: grid;
+    grid-template-columns: 56px minmax(240px, 0.7fr) 1fr auto;
+    align-items: center;
+    gap: 28px;
+    min-height: 150px;
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+    padding: 28px 0;
 }
 
 .service-card span,
@@ -611,7 +630,7 @@ p {
     place-items: center;
     width: 38px;
     height: 38px;
-    margin-bottom: 48px;
+    margin-bottom: 0;
     border: 1px solid var(--ink);
     border-radius: 50%;
     font-size: 0.78rem;
@@ -620,6 +639,35 @@ p {
 
 .service-card p {
     margin-bottom: 0;
+    color: var(--ink);
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+.service-card h3 {
+    max-width: 420px;
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    font-style: italic;
+}
+
+.ticket-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.ticket-link:hover,
+.ticket-link:focus-visible {
+    background: var(--ink);
+    color: var(--white);
 }
 
 .process {
@@ -852,6 +900,12 @@ p {
 
     .hero {
         min-height: auto;
+        align-items: start;
+    }
+
+    .hero-lede {
+        margin-left: 0;
+        text-align: left;
     }
 
     .hero-visual {
@@ -859,7 +913,7 @@ p {
     }
 
     .feature-card {
-        left: 18px;
+        left: 0;
     }
 
     .about {
@@ -868,6 +922,7 @@ p {
 
     .about-content {
         grid-column: 1;
+        padding-top: 0;
     }
 
     .about-frame {
@@ -910,7 +965,16 @@ p {
     }
 
     .service-card {
+        grid-template-columns: 46px 1fr;
+        gap: 16px 22px;
         min-height: 240px;
+    }
+
+    .service-card p,
+    .ticket-link {
+        grid-column: 2;
+        justify-self: start;
+        text-align: left;
     }
 
     .timeline article {
@@ -946,7 +1010,7 @@ p {
     }
 
     h1 {
-        font-size: clamp(3.7rem, 21vw, 6.4rem);
+        font-size: clamp(4rem, 22vw, 6.6rem);
     }
 
     h2 {
@@ -972,12 +1036,18 @@ p {
     }
 
     .feature-card {
-        inset: 10px 0 24px 14px;
-        border-radius: 28px 28px 58px 28px;
+        inset: 10px 0 24px;
+        border-radius: 38px 38px 64px 38px;
+    }
+
+    .signature {
+        left: 30px;
+        top: 28px;
     }
 
     .round-link {
         right: -2px;
+        top: 42%;
         width: 60px;
         height: 60px;
     }
@@ -986,6 +1056,14 @@ p {
         width: 68px;
         height: 68px;
         border-width: 6px;
+    }
+
+    .chip-top {
+        top: 48%;
+    }
+
+    .chip-bottom {
+        top: 64%;
     }
 
     .section-kicker {
@@ -1008,6 +1086,7 @@ p {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: none;
+        gap: 12px;
     }
 
     .portfolio-wide,
@@ -1025,6 +1104,18 @@ p {
 
     .portfolio-title {
         order: -1;
+        text-align: left;
+    }
+
+    .service-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 28px 0;
+    }
+
+    .service-card p,
+    .ticket-link {
+        grid-column: auto;
     }
 
     .insta-grid {
